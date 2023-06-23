@@ -1,0 +1,22 @@
+.filters-container{
+     border: 2px solid black;
+     height: 400px;
+     padding: 20px;
+}
+
+.Ascending-container{
+     padding-top: 20px;
+}
+
+.Descending-container{
+     padding-top: 20px;
+}
+
+.Price-container{
+     padding-top: 20px;
+     width: 200px;
+}
+
+.FastDelivery-container{
+     padding-top: 20px;
+}

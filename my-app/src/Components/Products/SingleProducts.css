@@ -1,0 +1,33 @@
+.product{
+     color: black;
+     height: 100%;
+     padding: 65px;
+     display: flex;
+}
+
+.singleproducts{
+     margin-left: 5%;
+}
+
+
+.prod-image{
+            width: 200px;
+            height: auto; 
+            display: flex;
+            flex-wrap: wrap;          
+}
+
+.prod-box{
+     border: 1px solid black;
+     margin:5px;
+     padding: 4px;
+     display: inline-block;
+}
+
+.prod-btn{
+     display: flex;
+     
+}
+
+
+

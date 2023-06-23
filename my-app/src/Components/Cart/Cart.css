@@ -1,0 +1,33 @@
+.cart{
+     color: black;
+     height: 100%;
+     padding: 65px;
+}
+.cart-header{
+
+     color: black;
+     height: 100%;
+     padding: 10px;
+     
+}
+
+.cart-container{
+     display: block ruby;
+     border: 1px solid black;
+     margin:5px;
+     padding: 4px;
+     width: 800px;
+}
+.cart-image{
+     height: auto;
+     width: 200px;
+}
+
+.cart-item{
+     display: inline-block;    
+}
+
+.cart-price{
+     margin: 50px 200px  ;
+}
+
