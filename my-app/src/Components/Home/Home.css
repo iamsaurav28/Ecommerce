@@ -9,6 +9,7 @@
 }
 
 .vicky-image{
+  display: flex;
      height: auto;
      width: 600px;
      padding: 30px;
@@ -29,6 +30,16 @@
            cursor: pointer;  
 }
 
+
+@media only screen and (max-width: 1024px) {
+  .vicky-image{
+    height: auto;
+    width: 300px;
+    padding: 30px;
+    
+}
+
+}
 
 
 

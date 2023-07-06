@@ -20,3 +20,46 @@
 .FastDelivery-container{
      padding-top: 20px;
 }
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1024px) {
+
+     .filters-container{
+          display: block;
+          border: 2px solid black;
+          height: 400px;
+          padding: 10px;
+          font-size: small;
+     }
+     
+     .Ascending-container{
+          padding-top: 10px;
+     }
+     
+     .Descending-container{
+          padding-top: 20px;
+     }
+     
+     .Price-container{
+          padding-top: 20px;
+          width: 100px;
+     }
+     .range{
+          width: 80px;
+     }
+     
+     .FastDelivery-container{
+          padding-top: 20px;
+     }
+     
+
+
+}

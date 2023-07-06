@@ -18,9 +18,10 @@
 }
 
 .Navbar-links{
-     display: inline-block;
+     display: inline-flex;
      float:right;
-     margin: 20px 20px 0px 0px;
+     margin: 10px ;
+     align-items: baseline;
      
 }
 
@@ -37,9 +38,103 @@ a.active{
 .search-bar{
      width: 350px;
      height: 30px;
-     margin-left: 300px;
+     margin-left: 30px;
      position: relative;
      bottom: 2px;
      border:2px solid black;
      border-radius: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#sidebarmenu{
+     height: 100%;
+     position: fixed;
+     left: 0;
+     top: 0;
+     width: 150px;
+     margin-top: 60px;
+     transform: translateX(-150px);
+     transition: transform 250ms  ease-in-out;
+     visibility: hidden;
+}
+
+
+@media only screen and (max-width: 1024px) {
+   
+
+     .Navbar{
+          height: 60px;
+          width: 100%;
+          display: inline-block;
+          box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.25);
+          backdrop-filter: blur(3px);
+          position:fixed;
+          opacity: 1.2;
+     }
+     
+     .title{
+          width: 30px;
+          display: inline-block;
+          padding: 15px 5px;
+          font-size:small;
+          text-decoration: none;
+          color: black;
+          font-weight: bold;
+          
+     }
+     
+     .Navbar-links{
+          display: inline-flex;
+          float:right;
+         margin-top: 20px;
+          align-items: baseline;
+          
+     }
+     
+     .nav-link{
+          padding: 5px;
+          text-decoration: none;
+          font-size: 10px;
+          font-weight: bold;
+
+     }
+     
+     a.active{
+          color: red;
+          font-weight: bolder;
+     }
+     
+     .search-bar{
+          display: inline-flex;
+          width: 150px;
+          height: 30px;
+          margin-left: 2px;
+          position: relative;
+          bottom: 8px;
+          border:2px solid black;
+          border-radius: 15px;
+     }
+
+     .logout{
+          padding: 2px;
+     }
+
+
 }

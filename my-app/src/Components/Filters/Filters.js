@@ -38,6 +38,7 @@ productDispatch} = Cartstate();
           <form className='Price-container'>
                <label className='price'>Price</label>
                <input
+               className='range'
                type="range"
                min={50}
                step={1}

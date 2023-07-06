@@ -1,80 +1,72 @@
-import React, { useEffect, useState } from 'react'
-import { Form, Button, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import axios from "axios";
+import React, { useState } from 'react'
+import axios from "../../Services/AxiosInterceptor";
+import { Link, useNavigate } from 'react-router-dom'
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
 
-  const submitHandler = async (e) => {
-   e.preventDefault();
+  const navigate = useNavigate();
 
-   try{
-     const config = {
-     headers:{
-       "Content-type" : "application/json"
-     }
-     }
+  const [Input, setInput] = useState({
+    email:"",
+    password:"",
+  })
 
-     setLoading(true);
-
-     const { data } = await axios.post(
-       '/api/users/login', 
-       {
-       email,
-       password,
-     },
-      config
-     );
-
-     
-      console.log(data)
-     localStorage.setItem('userInfo', JSON.stringify(data))      
-     setLoading(false)
-   } catch (error){
-       setError(error.response.data.message);
-       setLoading(false)
-   }
-  }
-
-
- return (
-
-   <div>
-   <Form  onSubmit={submitHandler}>
-     <Form.Group className="mb-3" controlId="formBasicEmail">
-       <Form.Label>Email address</Form.Label>
-       <Form.Control type="email" value={email} placeholder="Enter email" onChange={(e) => setEmail(e.target.value)} />
-       <Form.Text className="text-muted">
-         We'll never share your email with anyone else.
-       </Form.Text>
-     </Form.Group>
-
-     <Form.Group className="mb-3" controlId="formBasicPassword">
-       <Form.Label>Password</Form.Label>
-       <Form.Control type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-     </Form.Group>
-     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-       <Form.Check type="checkbox" label="Check me out" />
-     </Form.Group>
-     <Button variant="primary" type="submit">
-       Submit
-     </Button>
-   </Form>
-       <Row className="py-3">
-         <Col>
-           New Customer ? <Link to="/register">Register Here</Link>
-         </Col>
-       </Row>
-   </div>
 
  
- )
+
+    const handlelogin = async (e) => {
+      e.preventDefault();
+      try {
+        const response = await axios.post("api/auth/users/login", Input);
+        if (response.status === 200) {
+          alert(response.data.message);
+          localStorage.setItem("token", response.data.token);
+          localStorage.setItem("name", response.data.name);
+          navigate("/home");
+        }
+      } catch (error) {
+        alert(error.response.data.message);
+      }
+    };
+
+  return (
+    <div className='home'>
+
+<form  onSubmit={handlelogin}>
+
+      <div>
+        <label >Email address</label>
+        <div className="mt-2">
+          <input name='email' value={Input.email} onChange={(e)=> setInput({...Input, [e.target.name]: e.target.value})} />
+         
+        </div>
+      </div>
+
+      <div>
+        <div >
+          <label >Password</label>
+        
+        </div>
+        <div className="mt-2">
+          <input name='password' value={Input.password} onChange={(e)=> setInput({...Input,[e.target.name]: e.target.value})}/>
+      
+        </div>
+      </div>
+
+      <div style={{display:"inline-flex", marginTop:"15px" ,}}>
+        <button  >Sign in</button>
+        </div>
+    
+
+      <div style={{margin:"20px"}} >Don't have account ? 
+     <Link to="/register">Register</Link>
+    </div>
+    
+    </form>
+
+
+    </div>
+  )
 }
 
 export default Login;
-
-
