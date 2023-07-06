@@ -30,7 +30,7 @@ const  navigate = useNavigate();
 
 return(
      <div className="Navbar" >
-          <Link className="title" to="/home">Darji Store</Link>
+          <Link className="title" to="/">Darji Store</Link>
           <input className="search-bar" type="input" placeholder="search here"
           onChange={(e) =>
           productDispatch({
@@ -39,7 +39,7 @@ return(
           })
           }        />
           <div className="Navbar-links">
-               <NavLink className="nav-link" to="/home" >Home</NavLink>
+               <NavLink className="nav-link" to="/" >Home</NavLink>
                <NavLink className="nav-link" to="/singleproducts" >Products</NavLink>
                <NavLink className="nav-link" to="/cart" >Cart
                <sup>{cart.length}</sup>
@@ -61,20 +61,6 @@ return(
 
 
 
-
-{/* 
-
-          <input id='opensidebarmenu' type="checkbox" />
-     <label for="opensidebarmenu" className="sidebaricon" ><i className="icon fas fa-bars">X</i></label>
-        <div id='sidebarmenu' >
-          <ul className='menu'>
-              <li><NavLink className="nav-link" to="/home" >Home</NavLink></li>
-              <li><NavLink className="nav-link" to="/singleproducts" >Products</NavLink></li>
-              <li><NavLink className="nav-link" to="/cart" >Cart<sup>{cart.length}</sup></NavLink></li>
-              <li><NavLink className="nav-link" to="/changepassword" >Account</NavLink></li>
-         
-          </ul>
-        </div> */}
 
 
      </div>

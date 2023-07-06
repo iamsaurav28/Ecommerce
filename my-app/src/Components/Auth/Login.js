@@ -11,7 +11,6 @@ const Login = () => {
     password:"",
   })
 
-
  
 
     const handlelogin = async (e) => {
@@ -22,7 +21,7 @@ const Login = () => {
           alert(response.data.message);
           localStorage.setItem("token", response.data.token);
           localStorage.setItem("name", response.data.name);
-          navigate("/home");
+          navigate("/");
         }
       } catch (error) {
         alert(error.response.data.message);
