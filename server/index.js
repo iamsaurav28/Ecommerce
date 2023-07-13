@@ -12,6 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/",(req,res)=>{
+     res.setHeader("Access-Control-Allow-Credentials","true"),
      res.send("Backend is running")
 })
 

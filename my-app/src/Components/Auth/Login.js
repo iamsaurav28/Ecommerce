@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from "../../Services/AxiosInterceptor";
 import { Link, useNavigate } from 'react-router-dom'
 
-const Login = () => {
+  const Login = () => {
 
   const navigate = useNavigate();
 
@@ -11,9 +11,9 @@ const Login = () => {
     password:"",
   })
 
- 
 
-    const handlelogin = async (e) => {
+
+  const handlelogin = async (e) => {
       e.preventDefault();
       try {
         const response = await axios.post("api/auth/users/login", Input);

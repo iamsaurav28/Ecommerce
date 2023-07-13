@@ -13,7 +13,7 @@ const Register = () => {
      })
 
 
-  const handlesubmit = async (e) => {
+  const handlesubmit = async(e) => {
     e.preventDefault();
 
      try {
