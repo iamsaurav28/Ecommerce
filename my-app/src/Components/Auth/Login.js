@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import axios from "../../Services/AxiosInterceptor";
+import axios from "axios";
 import { Link, useNavigate } from 'react-router-dom'
 
   const Login = () => {
@@ -16,7 +16,7 @@ import { Link, useNavigate } from 'react-router-dom'
   const handlelogin = async (e) => {
       e.preventDefault();
       try {
-        const response = await axios.post("api/auth/users/login", Input);
+        const response = await axios.post("https://mern-ecommerce-ssky.onrender.com/api/auth/users/login", Input);
         if (response.status === 200) {
           alert(response.data.message);
           localStorage.setItem("token", response.data.token);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import axios from "../../Services/AxiosInterceptor";
+import axios from "axios";
 import { Link, useNavigate } from 'react-router-dom'
 
 const Register = () => {
@@ -17,7 +17,7 @@ const Register = () => {
     e.preventDefault();
 
      try {
-      const response = await axios.post("api/auth/users/register", Input);
+      const response = await axios.post("https://mern-ecommerce-ssky.onrender.com/api/auth/users/register", Input);
       if (response.status === 201) {
         alert(response.data.message);
         navigate("/login");

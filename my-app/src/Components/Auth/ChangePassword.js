@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom'
-import axios from "../../Services/AxiosInterceptor";
+import axios from "axios";
 
 
 
@@ -19,7 +19,7 @@ const ChangePassword = () => {
           e.preventDefault();
 
           try {
-            const response = await axios.post("api/auth/change-password", Input, {
+            const response = await axios.post("https://mern-ecommerce-ssky.onrender.com/api/auth/change-password", Input, {
                headers:{
                     authorization: `Bearer ${token}`
                }
