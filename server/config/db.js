@@ -1,11 +1,20 @@
 import mongoose from "mongoose";
 
+
 const connectDB =async()=>{
-     const res= await mongoose.connect(
-           "mongodb://0.0.0.0:27017/mern-auth-project")
-     if(res){
-          console.log("connected successfully")
+
+     try{
+          const conn= await mongoose.connect(process.env.MONGO_URI,{
+               useUnifiedTopology: true,
+               useNewUrlParser: true,
+               
+          });
+          console.log(`MongoDb connected to : ${conn.connection.host}`)
+     }catch(error){
+          console.error(`Error: ${error.message}`);
+          process.exit();
      }
+
 }
 
 export default connectDB;
