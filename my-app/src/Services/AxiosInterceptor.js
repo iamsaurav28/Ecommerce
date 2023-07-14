@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const instance = axios.create({
-     baseURL:"http://localhost:9000/",
-     timeout:2000,
+     baseURL:"https://mern-ecommerce-ssky.onrender.com",
+     timeout:1000,
 })
 
 export default instance;
