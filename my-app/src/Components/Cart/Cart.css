@@ -1,33 +1,105 @@
-.cart{
-     color: black;
-     height: 100%;
-     padding: 65px;
-}
-.cart-header{
 
-     color: black;
-     height: 100%;
-     padding: 10px;
-     
-}
 
-.cart-container{
-     display: block ruby;
-     border: 1px solid black;
-     margin:5px;
-     padding: 4px;
-     width: 800px;
-}
-.cart-image{
-     height: auto;
-     width: 200px;
-}
 
-.cart-item{
-     display: inline-block;    
-}
+ .cart {
+     padding: 20px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     max-width: 800px;
+     position: relative;
+    top: 80px;
+    left: 20px;
+    margin-bottom: 100px;
+   }
+   
+   .cart-header {
+     text-align: center;
+     margin-bottom: 20px;
+   }
 
-.cart-price{
-     margin: 50px 200px  ;
-}
+   .cart-container{
 
+   }
+   
+   .cart-item {
+     display: flex;
+   
+     align-items: center;
+     margin-bottom: 15px;
+   }
+   
+   .cart-item-info {
+     display: flex;
+     align-items: center;
+   }
+   
+   .cart-image {
+     width: 100px;
+     height: 100px;
+     object-fit: cover;
+     margin-right: 20px;
+   }
+   
+   .cart-details {
+     flex: 1;
+   }
+   
+   .cart-name {
+     font-size: 18px;
+     font-weight: bold;
+   }
+   
+   .cart-price {
+     margin-top: 5px;
+   }
+   
+   .cart-quantity {
+     display: flex;
+     align-items: center;
+   }
+   
+   .quantity-btn {
+     background-color: #007bff;
+     color: white;
+     border: none;
+     border-radius: 50%;
+     width: 30px;
+     height: 30px;
+     font-size: 18px;
+     cursor: pointer;
+     margin: 0 5px;
+   }
+   
+   .cart-total {
+     margin-top: 20px;
+     display: flex;
+     justify-content: space-between;
+     font-size: 20px;
+     font-weight: bold;
+   }
+   
+   .remove-btn {
+     background-color: #dc3545;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     padding: 5px 10px;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+   }
+   
+   .remove-btn:hover {
+     background-color: #c82333;
+   }
+   
+
+   .subtotal{
+     margin-top: 10px;
+     margin-bottom: 10px;
+     font-size: 20px;
+   }
+
+   .total{
+   font-size: 20px;
+   font-weight: 600;
+   }

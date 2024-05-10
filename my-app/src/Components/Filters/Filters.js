@@ -4,7 +4,7 @@ import "./Filters.css";
 
 const Filters = () => {
   
-const {productState:{sort, byStock, byFastDelivery, priceRange}, 
+const {productState:{sort, byStock, byFastDelivery, priceRange, selectedRating}, 
 productDispatch} = Cartstate();
 
   return (
@@ -66,16 +66,29 @@ productDispatch} = Cartstate();
                checked={byFastDelivery}
                />
           </form>
+
+          <form className='Rating-container'>
+          <label className='Rating'>Rating</label>
+          <select
+            value={selectedRating || ''}
+            onChange={(e) => productDispatch({ type: "FILTER_BY_RATING", payload: e.target.value })}
+          >
+            <option value="">All</option>
+            <option value="1">1 Star</option>
+            <option value="2">2 Stars</option>
+            <option value="3">3 Stars</option>
+            <option value="4">4 Stars</option>
+            <option value="5">5 Stars</option>
+          </select>
+        </form>
+
+
           <div className='clearfilter-container'>
                <button className='clearfilter' onClick={() => productDispatch ({
                     type:"CLEAR_FILTERS"
                })}> Clear Filter</button>
 
           </div>
-
-          
-  
-
           </span>
           
      </div>

@@ -4,9 +4,10 @@ import checkIsUserAuthenticated from "../middlewares/authMIddleware.js";
 
 const router= express.Router();
 
+
+
 router.post("/users/register", authController.userRegistration)
 router.post("/users/login", authController.userLogin)
-
 
 
 //protected routes

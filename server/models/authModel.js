@@ -2,14 +2,17 @@ import mongoose from "mongoose";
 
 const authscheme = new mongoose.Schema({
      name:{
-          type:String
+          type:String,
      },
      email:{
-          type:String
+          type:String,
      },
      password:{
-          type:String
+          type:String,
      },
+     isVerified:{
+          type:String,
+     }
 })
 
 

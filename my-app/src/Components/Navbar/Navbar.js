@@ -1,4 +1,5 @@
 import React from "react";
+import { RiLogoutCircleRLine } from "react-icons/ri";
 import { NavLink,Link, useNavigate} from "react-router-dom";
 import { Cartstate } from "../../Context/Context";
 import "./Navbar.css";
@@ -48,7 +49,9 @@ return(
                <div className='div-inline mx-auto my-2 my-lg-0'>
                {token && token !== null ?
                     <>
-               <button className="nav-link logout" style={{color:"black"}} onClick={handleLogout}>Logout</button>
+               <Link className="nav-link logout" style={{color:"black"}} onClick={handleLogout}>
+               <RiLogoutCircleRLine />
+               </Link>
                </>
                :
                <>

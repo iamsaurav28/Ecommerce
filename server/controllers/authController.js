@@ -2,6 +2,7 @@ import authModel from "../models/authModel.js";
 import bcryptjs from "bcryptjs";
 import  jwt  from "jsonwebtoken";
 
+
 class authController
 {
      static userRegistration = async (req,res)=>{
@@ -16,12 +17,13 @@ class authController
                 }else{
                   
                 const genSalt = await bcryptjs.genSalt(10);
-                const hashedPassword = await bcryptjs.hash(password, genSalt);
+                const hashedPassword = await bcryptjs.hash(password, genSalt); 
 
                 const newUser = authModel({
                     name,
                     email,
-                    password:hashedPassword
+                    password:hashedPassword,
+                   
                 })
 
                 const resUser = await newUser.save();

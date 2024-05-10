@@ -5,15 +5,11 @@ import "./SingleProducts.css";
 
 const SingleProducts = () => {
 
-   const { state :{ products,cart },productState: { sort,byStock, byFastDelivery, priceRange ,searchQuery},
-dispatch
-   } = Cartstate();
-
-
-  //  const{productState: { sort },
-  
-  // productDispatch} = Cartstate();
-
+  const {
+    state: { products, cart },
+    productState: { sort, byStock, byFastDelivery, priceRange, searchQuery, selectedRating }, // Make sure selectedRating is accessed from productState
+    dispatch
+  } = Cartstate();
   
   const transformproducts =() => {
      let sortedProducts = products;
@@ -36,7 +32,9 @@ dispatch
       sortedProducts = sortedProducts.filter((item) => item.price <= priceRange)
      }
 
-     
+     if (selectedRating) {
+      sortedProducts = sortedProducts.filter((prod) => prod.ratings === parseInt(selectedRating));
+    }
 
      if(searchQuery){
       sortedProducts = sortedProducts.filter((prod) => 
@@ -53,47 +51,43 @@ dispatch
     <div className='product'>
       <Filters />
       <div className='singleproducts'> 
-                      {
-                         transformproducts().map((prod)=> {
-                              return(
-                                <div className='prod-box'>
-                                <img className='prod-image' src={prod.image} alt="images" />
-                               <span className='prod-name'>{prod.name}</span>
-                               <div>{prod.price}</div>
-                               <div>{prod.fastDelivery}</div>
-                               <div className='prod-btn'>
-
-                                {
-                                  cart.some((p) => p.id === prod.id) ? (
-                                    <button  onClick={() =>{
-                                      dispatch({
-                                        type:"REMOVE_FROM_CART",
-                                        payload: prod
-                                      })
-                                     }}>REMOVE</button>
-                                  ):(
-                                    <button onClick={() =>{
-                                      dispatch({
-                                        type:"ADD_TO_CART",
-                                        payload:prod
-                                    
-                                      })
-                                     }}>BUY NOW</button>
-                                    
-                                  )
-                                }
-
-
-
-
-                              
-                               </div>
-                               </div>
-                              )
-                         })
-                      }
+        {
+          transformproducts().map((prod) => {
+            return (
+              <div className='prod-box' key={prod._id}>
+                <img className='prod-image' src={prod.image} alt={prod.name} />
+                <span className='prod-name'>{prod.name}</span>
+                <div className='prod-details'>
+                  <div>{`Price: $${prod.price}`}</div>
+                  <div>{prod.inStock ? 'In Stock' : 'Out of Stock'}</div>
+                  <div>{prod.fastDelivery ? 'Fast Delivery Available' : 'No Fast Delivery'}</div>
+                  <div>{`Ratings: ${prod.ratings}`}</div>
+                  <div>{`${prod.offer}`}</div>
+                </div>
+                <div className='prod-btn'>
+                  {
+                    cart.some((p) => p._id === prod._id) ? (
+                      <button onClick={() =>{
+                        dispatch({
+                          type:"REMOVE_FROM_CART",
+                          payload: prod
+                        })
+                      }}>REMOVE</button>
+                    ) : (
+                      <button onClick={() =>{
+                        dispatch({
+                          type:"ADD_TO_CART",
+                          payload: prod // Pass the specific product information to the dispatch function
+                        });
+                      }}>BUY NOW</button>
+                    )
+                  }
+                </div>
+              </div>
+            )
+          })
+        }
       </div>
-    
     </div>
   )
 }

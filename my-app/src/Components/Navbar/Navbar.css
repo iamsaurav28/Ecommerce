@@ -23,11 +23,13 @@
      margin: 10px ;
      align-items: baseline;
      
+     
 }
 
 .nav-link{
      padding: 10px;
      text-decoration: none;
+     color: black;
 }
 
 a.active{
@@ -45,7 +47,11 @@ a.active{
      border-radius: 15px;
 }
 
-
+.logout{
+     position: relative;
+     top: 5px;
+     font-size: 26px;
+}
 
 
 
