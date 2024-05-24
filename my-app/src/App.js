@@ -55,6 +55,7 @@ import Login from './Components/Auth/Login';
 import Register from './Components/Auth/Register';
 import ChangePassword from './Components/Auth/ChangePassword';
 import ProtectedRoutes from "./Components/Auth/ProtectedRoutes";
+import Wishlist from './Components/Wishlist/Wishlist';
 
 function App() {
   const location = useLocation();
@@ -77,6 +78,7 @@ function App() {
           <Route path='/' element={<ProtectedRoutes/>}>
             <Route path="/" element={<Home />} />
             <Route path='/singleproducts' element={<SingleProducts />} />
+            <Route path="/wishlist" element={<Wishlist />}  />
             <Route path="/cart" element={<Cart />}  />
             <Route path='/changepassword' element={<ChangePassword/>} />
           </Route>

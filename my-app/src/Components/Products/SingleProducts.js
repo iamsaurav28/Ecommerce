@@ -6,7 +6,7 @@ import "./SingleProducts.css";
 const SingleProducts = () => {
 
   const {
-    state: { products, cart },
+    state: { products, cart,wishlist  },
     productState: { sort, byStock, byFastDelivery, priceRange, searchQuery, selectedRating }, // Make sure selectedRating is accessed from productState
     dispatch
   } = Cartstate();
@@ -82,6 +82,22 @@ const SingleProducts = () => {
                       }}>BUY NOW</button>
                     )
                   }
+
+{wishlist.some((w) => w._id === prod._id) ? (
+                  <button onClick={() => {
+                    dispatch({
+                      type: "REMOVE_FROM_WISHLIST",
+                      payload: prod
+                    });
+                  }}>REMOVE FROM WISH</button>
+                ) : (
+                  <button onClick={() => {
+                    dispatch({
+                      type: "ADD_TO_WISHLIST",
+                      payload: prod
+                    });
+                  }}>ADD TO WISH</button>
+                )}
                 </div>
               </div>
             )

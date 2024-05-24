@@ -64,6 +64,7 @@ const Context = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, {
     products: products,
     cart: [],
+    wishlist: [],
   });
 
   const [productState, productDispatch] = useReducer(productReducer, {

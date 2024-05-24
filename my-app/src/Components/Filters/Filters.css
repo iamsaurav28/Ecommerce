@@ -1,65 +1,71 @@
-.filters-container{
-     border: 2px solid black;
-     height: 400px;
-     padding: 20px;
-}
+.filters-container {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     align-items: center;
+     margin-bottom: 20px;
+   }
+   
+   .filters-container span {
+     flex-basis: 100%;
+   }
+   
+   .Ascending-container,
+   .Descending-container,
+   .Price-container,
+   .Stock-container,
+   .FastDelivery-container,
+   .Rating-container {
+     flex-basis: 48%;
+     margin-bottom: 10px;
+   }
+   
+   label {
+     font-size: 16px;
+     font-weight: bold;
+     margin-right: 10px;
+   }
+   
+   input[type='radio'],
+   input[type='checkbox'] {
+     margin-right: 5px;
+   }
+   
+   input[type='range'] {
+     width: 10%;
+   }
+   
+   .clearfilter-container {
+     flex-basis: 100%;
+   }
+   
+   .clearfilter {
+     background-color: #dc3545;
+     color: #fff;
+     border: none;
+     padding: 8px 16px;
+     border-radius: 4px;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+   }
+   
+   .clearfilter:hover {
+     background-color: #bd2130;
+   }
 
-.Ascending-container{
-     padding-top: 20px;
-}
 
-.Descending-container{
-     padding-top: 20px;
-}
-
-.Price-container{
-     padding-top: 20px;
-     width: 200px;
-}
-
-.FastDelivery-container{
-     padding-top: 20px;
-}
-
-
-
-
-
-
-
-
-
-
-@media only screen and (max-width: 1024px) {
-
-     .filters-container{
-          display: block;
-          border: 2px solid black;
-          height: 400px;
-          padding: 10px;
-          font-size: small;
+   
+@media screen and (max-width: 720px) {
+     .filters-container {
+       flex-direction: column;
+       align-items: stretch;
      }
-     
-     .Ascending-container{
-          padding-top: 10px;
-     }
-     
-     .Descending-container{
-          padding-top: 20px;
-     }
-     
-     .Price-container{
-          padding-top: 20px;
-          width: 100px;
-     }
-     .range{
-          width: 80px;
-     }
-     
-     .FastDelivery-container{
-          padding-top: 20px;
-     }
-     
-
-
-}
+   
+     .Ascending-container,
+     .Descending-container,
+     .Price-container,
+     .Stock-container,
+     .FastDelivery-container,
+     .Rating-container {
+       flex-basis: 100%;
+     }}
